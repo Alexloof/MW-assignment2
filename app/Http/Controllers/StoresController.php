@@ -1,8 +1,9 @@
 <?php
-
 namespace App\Http\Controllers;
 
-class ExampleController extends Controller
+use App\Store;
+
+class StoresController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -14,5 +15,9 @@ class ExampleController extends Controller
         //
     }
 
-    //
+    public function index()
+    {
+        $stores = Store::all();
+        return response()->json($stores);
+    }
 }
