@@ -32,8 +32,7 @@ class ProductsController extends Controller
 
     public function create(Request $request)
     {
-        $stores = $request->input("stores");
-
+        
         $product = new Product;
         $product->title = $request->input("title");
         $product->brand = $request->input("brand");
@@ -41,11 +40,10 @@ class ProductsController extends Controller
         $product->image = $request->input("image");
         $product->description = $request->input("description");
         $product->save();
+        
+        $stores = $request->input("stores");
+        $product->stores()->attach($stores);
 
-        foreach ($stores as $store) {
-            echo $store;
-            echo $product;
-        }
-        return response()->json($product);
+        return response()->json(["success" => true]);
     }
 }
