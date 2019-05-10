@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class ShopsTableSeeder extends Seeder
+class StoresTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,7 +11,7 @@ class ShopsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('shops')->insert([
+        DB::table('stores')->insert([
             [
                 "name" => "Elgiganten",
                 "city" => "Lund"
